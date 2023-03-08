@@ -34,7 +34,7 @@ export default function NavMenu() {
         setOpenedNewProduct={setOpenedNewProduct}
       />
 
-      <div className="fixed top-4 right-4 text-right">
+      <div className="fixed bottom-4 right-4 text-right">
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button className="btn bg-blue-700 hover:bg-blue-800">
@@ -50,7 +50,7 @@ export default function NavMenu() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 min-w-[150px] mt-2 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
+            <Menu.Items className="absolute right-0 bottom-16 min-w-[150px] mt-2 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
               <div className="">
                 {!home && (
                   <Link to="/">

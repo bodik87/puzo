@@ -63,7 +63,7 @@ export default function Warning({
                           className="btn bg-black/80 hover:bg-black/70 flex flex-nowrap text-sm md:text-base"
                           onClick={closeModal}
                         >
-                          <ArrowLeftIcon className="h-4 w-4 mr-1" />
+                          <ArrowLeftIcon className="h-4 w-4 mr-2 -ml-3" />
                           {CANCEL_STEP}
                         </button>
                       </div>

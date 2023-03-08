@@ -11,15 +11,17 @@ export const ADD_TO_FAVORITES = "Додати в обране";
 export const PROTEINS = "Білки";
 export const FATS = "Жири";
 export const CARBOHIDR = "Вуглеводи";
+export const PROT = "Б";
+export const FAT = "Ж";
+export const CARB = "В";
 export const CARBOHIDR_PLACEHOLDER = "Вуглев.";
 export const CALORIES = "Калорії";
 export const NUTRIENTS = "Нутрієнти в 100гр";
 export const CANCEL = "Відмінити";
-export const CANCEL_STEP = "Повернутися";
+export const CANCEL_STEP = "Назад";
 export const WARNING = "Підтвердіть дію";
 export const AGREE = "Погоджуюсь";
-export const CANCEL_CREATION =
-  "Ви дійсно бажаєте завершити створення продукта без збереження введених даних?";
+export const CANCEL_CREATION = "Завершити без збереження?";
 
 export const BREAKFAST = "Сніданок";
 export const LUNCH = "Обід";
