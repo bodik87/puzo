@@ -1,6 +1,6 @@
 import { add, format } from "date-fns";
 
-export function getlastDishes(meals) {
+export function getLastDishes(meals) {
   const yesterday = format(add(new Date(), { days: -1 }), "yyyy-MM-dd");
   const dayBeforeYesterday = format(
     add(new Date(), { days: -2 }),

@@ -21,7 +21,7 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
   return (
     <>
       <Transition appear show={openedBodyWeight} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -59,7 +59,7 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                       <input
                         type="number"
                         value={value}
-                        onChange={(e) => setValue(Number(e.target.value))}
+                        onChange={(e) => setValue(e.target.value)}
                         step={0.1}
                         placeholder={BODY_WEIGHT}
                         className="input p-4 text-2xl"

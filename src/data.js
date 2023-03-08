@@ -1,12 +1,12 @@
 export const data = [
   {
     id: 1,
-    title: "Овочі, 🍅 🥒",
+    title: "Овочі, помідор, огірок 🍅 🥒",
     proteins: 3,
     fats: 0,
     carbohydrates: 7,
     calories: 47,
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 2,
@@ -55,12 +55,12 @@ export const data = [
   },
   {
     id: 7,
-    title: "Яблуко, виноград, ягоди",
+    title: "Яблуко, фрукти, ягоди",
     proteins: 1,
     fats: 0.2,
     carbohydrates: 16,
     calories: 63,
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export const data = [
     fats: 0,
     carbohydrates: 8,
     calories: 36,
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 9,
@@ -91,21 +91,21 @@ export const data = [
   },
   {
     id: 11,
-    title: "Яєчний білок (1шт/35г)",
+    title: "Яєчний білок (1шт-35г)",
     proteins: 11.1,
     fats: 1,
     carbohydrates: 0.7,
     calories: 48,
-    isFavorite: false,
+    isFavorite: true,
   },
   {
     id: 12,
-    title: "Яйце з жовт (1шт/50г)",
-    proteins: 12.6,
-    fats: 12,
-    carbohydrates: 0.7,
-    calories: 162,
-    isFavorite: false,
+    title: "Яйце з жовт (1шт-50г)",
+    proteins: 12.3,
+    fats: 11,
+    carbohydrates: 0.9,
+    calories: 160,
+    isFavorite: true,
   },
   {
     id: 13,

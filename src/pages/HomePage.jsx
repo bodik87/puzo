@@ -1,10 +1,20 @@
 import React from "react";
-import Statistic from "../components/Statistic";
+import { useSelector } from "react-redux";
+import DatePicker from "../components/DatePicker";
+import Info from "../components/Info";
+import Meal from "../components/Meal";
+import { getLastDishes } from "../functions/getlastDishes";
 
 export default function HomePage() {
+  const meals = useSelector((state) => state.meals);
+  const { date } = useSelector((state) => state.date);
+  const daylyMeals = meals.filter((meal) => meal.date === date);
+  const lastDishes = getLastDishes(meals);
   return (
-    <div className="flex items-center justify-center gap-2">
-      <Statistic />
-    </div>
+    <>
+      <Info />
+      <DatePicker />
+      <Meal daylyMeals={daylyMeals} lastDishes={lastDishes} />
+    </>
   );
 }
