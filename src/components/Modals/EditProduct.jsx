@@ -79,7 +79,7 @@ export default function EditProduct({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black bg-opacity-30" />
           </Transition.Child>
 
           <div className="fixed top-5 left-0 right-0 overflow-y-auto">
@@ -93,7 +93,7 @@ export default function EditProduct({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white py-3 text-left align-middle shadow-lg transition-all  divide-y divide-gray-200">
+                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white/60 backdrop-blur-lg py-3 text-left align-middle shadow-lg transition-all  divide-y divide-gray-200">
                   <Dialog.Title
                     as="h3"
                     className="modalTitle px-6 pb-3 flex justify-between items-center"
@@ -107,10 +107,10 @@ export default function EditProduct({
                       {CANCEL}
                     </button>
                   </Dialog.Title>
-                  <div className="px-6 pt-6 pb-4">
+                  <div className="px-6 pt-3 pb-4">
                     <form onSubmit={handleEdit}>
                       <div className="mb-6">
-                        <label className="block mb-2 font-medium text-gray-900">
+                        <label className="block mb-1 font-medium text-gray-900">
                           {NAME}
                         </label>
                         <input
@@ -126,7 +126,7 @@ export default function EditProduct({
 
                       <div className="grid grid-cols-3 gap-4">
                         <div className="mb-6">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
+                          <label className="block mb-1 text-sm font-medium text-gray-900">
                             {PROTEINS}
                           </label>
                           <input
@@ -139,7 +139,7 @@ export default function EditProduct({
                           />
                         </div>
                         <div className="mb-6">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
+                          <label className="block mb-1 text-sm font-medium text-gray-900">
                             {FATS}
                           </label>
                           <input
@@ -152,7 +152,7 @@ export default function EditProduct({
                           />
                         </div>
                         <div className="mb-6">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
+                          <label className="block mb-1 text-sm font-medium text-gray-900">
                             {CARBOHIDR}
                           </label>
                           <input
@@ -168,7 +168,7 @@ export default function EditProduct({
 
                       <div className="grid grid-cols-2 items-center">
                         <div className="mb-6">
-                          <label className="block mb-2 font-medium text-gray-900">
+                          <label className="block mb-1 font-medium text-gray-900">
                             {CALORIES}
                           </label>
                           <input
@@ -224,7 +224,7 @@ export default function EditProduct({
                         </button>
                         <button
                           type="submit"
-                          className="btn bg-yellow-600 hover:bg-yellow-600 text-sm md:text-base"
+                          className="btn bg-yellow-500 hover:bg-yellow-500/70 text-sm md:text-base"
                         >
                           {EDIT}
                         </button>
