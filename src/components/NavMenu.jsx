@@ -1,6 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import {
   BODY_WEIGHT,
@@ -38,12 +37,8 @@ export default function NavMenu() {
       <div className="fixed top-4 right-4 text-right">
         <Menu as="div" className="relative inline-block text-left">
           <div>
-            <Menu.Button className="btn bg-[#4285F4] hover:bg-[#4285F4]/90">
+            <Menu.Button className="btn bg-blue-700 hover:bg-blue-800">
               {MENU}
-              <ChevronDownIcon
-                className="ml-2 -mr-1 h-5 w-5 text-white hover:text-white/70"
-                aria-hidden="true"
-              />
             </Menu.Button>
           </div>
           <Transition
@@ -63,7 +58,7 @@ export default function NavMenu() {
                       {({ active }) => (
                         <button
                           className={`${
-                            active ? "bg-[#4285F4] text-white" : "text-gray-900"
+                            active ? "bg-blue-700 text-white" : "text-gray-900"
                           } menuItem group `}
                         >
                           {TO_HOME}
@@ -79,7 +74,7 @@ export default function NavMenu() {
                       {({ active }) => (
                         <button
                           className={`${
-                            active ? "bg-[#4285F4] text-white" : "text-gray-900"
+                            active ? "bg-blue-700 text-white" : "text-gray-900"
                           } menuItem group `}
                         >
                           {RECIPES}
@@ -94,7 +89,7 @@ export default function NavMenu() {
                       {({ active }) => (
                         <button
                           className={`${
-                            active ? "bg-[#4285F4] text-white" : "text-gray-900"
+                            active ? "bg-blue-700 text-white" : "text-gray-900"
                           } menuItem`}
                         >
                           {CATALOG}
@@ -110,7 +105,7 @@ export default function NavMenu() {
                     <button
                       onClick={() => setOpenedBodyWeight(true)}
                       className={`${
-                        active ? "bg-[#4285F4] text-white" : "text-gray-900"
+                        active ? "bg-blue-700 text-white" : "text-gray-900"
                       } menuItem group`}
                     >
                       {BODY_WEIGHT}
@@ -122,7 +117,7 @@ export default function NavMenu() {
                     <button
                       onClick={() => setOpenedNewProduct(true)}
                       className={`${
-                        active ? "bg-[#4285F4] text-white" : "text-gray-900"
+                        active ? "bg-blue-700 text-white" : "text-gray-900"
                       } menuItem font-semibold group `}
                     >
                       {CREATE_NEW_PRODUCT}

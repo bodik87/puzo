@@ -9,6 +9,7 @@ import {
   CANCEL,
   CANCEL_CREATION,
   CARBOHIDR,
+  CARBOHIDR_PLACEHOLDER,
   CREATE,
   FATS,
   NAME,
@@ -38,6 +39,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
       >
         {CANCEL_CREATION}
       </Warning>
+
       <Transition appear show={openedNewProduct} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
@@ -71,7 +73,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                     {CREATE}
                     <button
                       type="button"
-                      className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5"
+                      className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-3"
                       onClick={closeModal}
                     >
                       {CANCEL}
@@ -80,7 +82,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                   <div className="px-6 pt-6 pb-4">
                     <form onSubmit={closeModal}>
                       <div className="mb-6">
-                        <label className="block mb-2 text-sm font-medium text-gray-900">
+                        <label className="block mb-2 font-medium text-gray-900">
                           {NAME}
                         </label>
                         <input
@@ -89,7 +91,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           onChange={(e) => setTitle(e.target.value)}
                           step={0.1}
                           placeholder={NAME}
-                          className="input p-4"
+                          className="input p-4 "
                           required
                         />
                       </div>
@@ -101,7 +103,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
-                            className="input p-2"
+                            className="input px-2 py-3 md:px-4 text-sm"
                             placeholder={PROTEINS}
                             required
                           />
@@ -112,7 +114,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
-                            className="input p-2"
+                            className="input px-2 py-3 md:px-4 text-sm"
                             placeholder={FATS}
                             required
                           />
@@ -123,8 +125,8 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
-                            className="input p-2"
-                            placeholder={CARBOHIDR}
+                            className="input px-2 py-3 md:px-4 text-sm"
+                            placeholder={CARBOHIDR_PLACEHOLDER}
                             required
                           />
                         </div>
@@ -132,12 +134,12 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                       <div className="grid grid-cols-2 items-center">
                         <div className="mb-6">
-                          <label className="block mb-2 text-sm font-medium text-gray-900">
+                          <label className="block mb-2 font-medium text-gray-900">
                             {CALORIES}
                           </label>
                           <input
                             type="number"
-                            className="input p-2"
+                            className="input px-2 py-4 md:px-4"
                             placeholder={CALORIES}
                             required
                           />
@@ -149,7 +151,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                               <Heart
                                 style={{ fill: "#EF4444" }}
                                 onClick={() => setChecked(!checked)}
-                                className="h-8 w-8"
+                                className="h-8 w-8 animate-scale"
                               />
                             ) : (
                               <HeartIcon
@@ -178,7 +180,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                       <button
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-4 mt-4 text-center"
+                        className="btn bg-blue-700 hover:bg-blue-800"
                       >
                         {CREATE}
                       </button>

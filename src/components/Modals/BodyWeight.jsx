@@ -48,12 +48,12 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                   <div className="mt-2">
                     <div className="mb-6">
                       <input
-                        type="text"
+                        type="number"
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
                         step={0.1}
                         placeholder={BODY_WEIGHT}
-                        className="input p-4"
+                        className="input p-4 text-2xl"
                       />
                     </div>
                   </div>
@@ -61,7 +61,7 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                   <div className="mt-4">
                     <button
                       type="button"
-                      className="btn bg-[#4285F4] hover:bg-[#4285F4]/90"
+                      className="btn bg-blue-700 hover:bg-blue-800"
                       onClick={closeModal}
                     >
                       {EDIT}

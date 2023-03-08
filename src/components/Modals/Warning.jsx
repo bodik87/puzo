@@ -55,23 +55,23 @@ export default function Warning({
 
                   <div className="mt-2 w-full text-center">{children}</div>
 
-                  <div className="flex items-center justify-center gap-6">
+                  <div className="flex items-center justify-center gap-2">
                     {hasOptions && (
-                      <div className="mt-6 flex justify-center">
+                      <div className="w-1/2 mt-6 flex justify-center">
                         <button
                           type="button"
-                          className="btn bg-black/80 hover:bg-black/70"
+                          className="btn bg-black/80 hover:bg-black/70 flex flex-nowrap text-sm md:text-base"
                           onClick={closeModal}
                         >
-                          <ArrowLeftIcon className="h-4 w-4 mr-4" />
+                          <ArrowLeftIcon className="h-4 w-4 mr-1" />
                           {CANCEL_STEP}
                         </button>
                       </div>
                     )}
-                    <div className="mt-6 flex justify-center">
+                    <div className="w-1/2 mt-6 flex justify-center">
                       <button
                         type="button"
-                        className="btn bg-red-500 hover:bg-red-500/90 active:hover:bg-red-800 px-10"
+                        className="btn bg-red-500 hover:bg-red-500/90 active:hover:bg-red-800 text-sm md:text-base"
                         onClick={closeModals}
                       >
                         {AGREE}

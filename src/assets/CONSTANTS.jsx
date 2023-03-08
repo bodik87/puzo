@@ -11,6 +11,7 @@ export const ADD_TO_FAVORITES = "Додати в обране";
 export const PROTEINS = "Білки";
 export const FATS = "Жири";
 export const CARBOHIDR = "Вуглеводи";
+export const CARBOHIDR_PLACEHOLDER = "Вуглев.";
 export const CALORIES = "Калорії";
 export const NUTRIENTS = "Нутрієнти в 100гр";
 export const CANCEL = "Відмінити";
