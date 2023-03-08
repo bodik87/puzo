@@ -39,7 +39,7 @@ export default function CatalogPage() {
         openedEditProduct={openedEditProduct}
         setOpenedEditProduct={setOpenedEditProduct}
       />
-      <div className="relative">
+      <div className="relative mx-2">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-500" />
         </div>
@@ -59,10 +59,10 @@ export default function CatalogPage() {
           value={searchQuery}
           onChange={handleChange}
           placeholder={SEARCH}
-          className="input p-4 pl-10 mb-2"
+          className="input border-2 rounded-xl p-4 pl-10 mb-2"
         />
       </div>
-      <div className="relative overflow-y-auto shadow-md rounded-lg">
+      <div className="relative overflow-y-auto shadow-md rounded-lg mx-2">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-slate-300">
             <tr>
