@@ -22,6 +22,7 @@ export const CANCEL_STEP = "Назад";
 export const WARNING = "Підтвердіть дію";
 export const AGREE = "Погоджуюсь";
 export const CANCEL_CREATION = "Завершити без збереження?";
+export const WARNING_INPUT = "Введіть значення";
 
 export const BREAKFAST = "Сніданок";
 export const LUNCH = "Обід";

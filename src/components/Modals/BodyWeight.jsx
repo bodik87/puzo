@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BODY_WEIGHT, EDIT } from "../../assets/CONSTANTS";
+import { BODY_WEIGHT, EDIT, WARNING_INPUT } from "../../assets/CONSTANTS";
 import { updateWeight } from "../../store/weightSlice";
 
 export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
@@ -9,9 +9,13 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
   const weight = useSelector((state) => state.weight);
   const [value, setValue] = useState(weight);
 
+  const validValue = value > 0;
+
   function closeModal() {
-    dispatch(updateWeight(Number(value)));
-    setOpenedBodyWeight(false);
+    if (validValue) {
+      dispatch(updateWeight(Number(value)));
+      setOpenedBodyWeight(false);
+    }
   }
 
   return (
@@ -47,13 +51,19 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <div className="mb-6">
+                      {!validValue && (
+                        <label className="block mb-2 text-sm font-medium text-[#EF4444]">
+                          {WARNING_INPUT}
+                        </label>
+                      )}
                       <input
                         type="number"
                         value={value}
-                        onChange={(e) => setValue(e.target.value)}
+                        onChange={(e) => setValue(Number(e.target.value))}
                         step={0.1}
                         placeholder={BODY_WEIGHT}
                         className="input p-4 text-2xl"
+                        required
                       />
                     </div>
                   </div>
