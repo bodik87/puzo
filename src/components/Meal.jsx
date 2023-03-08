@@ -23,7 +23,7 @@ export default function Meal({ daylyMeals, lastDishes }) {
         mealId={mealId}
         dishTitle={dishTitle}
       />
-      <div className="relative mt-1 px-2 overflow-y-auto shadow-md rounded-lg">
+      <div className="relative mt-1 mx-2 overflow-y-auto shadow-md rounded-lg">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-slate-300">
             <tr>
