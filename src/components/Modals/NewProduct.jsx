@@ -143,19 +143,19 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           />
                         </div>
 
-                        <div className="flex justify-center items-center select-none">
+                        <div className="flex flex-col md:flex-row gap-2 justify-center items-center select-none">
                           <div className="flex items-center h-5 cursor-pointer">
                             {checked ? (
                               <Heart
                                 style={{ fill: "#EF4444" }}
                                 onClick={() => setChecked(!checked)}
-                                className="h-6 w-6 ml-5"
+                                className="h-8 w-8"
                               />
                             ) : (
                               <HeartIcon
                                 style={{ stroke: "#EF4444" }}
                                 onClick={() => setChecked(!checked)}
-                                className="h-6 w-6 ml-5"
+                                className="h-8 w-8"
                               />
                             )}
                             <input
@@ -169,7 +169,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </div>
                           <label
                             htmlFor="favorite"
-                            className="ml-2 text-sm font-medium text-gray-900 cursor-pointer select-none"
+                            className="text-sm font-medium text-gray-900 cursor-pointer select-none"
                           >
                             {ADD_TO_FAVORITES}
                           </label>
@@ -178,7 +178,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                       <button
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 mt-4 text-center"
+                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-4 mt-4 text-center"
                       >
                         {CREATE}
                       </button>

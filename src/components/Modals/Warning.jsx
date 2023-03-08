@@ -71,7 +71,7 @@ export default function Warning({
                     <div className="mt-6 flex justify-center">
                       <button
                         type="button"
-                        className="btn bg-red-500 hover:bg-red-500/90 px-10"
+                        className="btn bg-red-500 hover:bg-red-500/90 active:hover:bg-red-800 px-10"
                         onClick={closeModals}
                       >
                         {AGREE}
