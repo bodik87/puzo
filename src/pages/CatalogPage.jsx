@@ -88,7 +88,9 @@ export default function CatalogPage() {
               <tr
                 key={product.id}
                 onClick={() => handleClick(product)}
-                className="bg-slate-50 border-b odd:bg-white cursor-pointer hover:bg-slate-100"
+                className={`bg-slate-50 border-b odd:bg-white ${
+                  product.isFavorite && "bg-red-50 odd:bg-red-50"
+                } cursor-pointer`}
               >
                 <th
                   scope="row"

@@ -39,7 +39,9 @@ export default function Meal({ daylyMeals, lastDishes }) {
               <tr
                 key={meal.id}
                 onClick={() => handleClick(meal.id, meal.dish.title)}
-                className="bg-slate-50 border-b odd:bg-white cursor-pointer hover:bg-slate-100"
+                className={`bg-slate-50 border-b odd:bg-white ${
+                  meal.dish.isFavorite && "bg-red-50 odd:bg-red-50"
+                } cursor-pointer`}
               >
                 <th
                   scope="row"

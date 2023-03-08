@@ -4,7 +4,7 @@ const mealsSlice = createSlice({
   initialState: [
     {
       id: 1,
-      date: "2023-03-08",
+      date: "2023-03-09",
       weight: 100,
       dish: {
         id: 13,
@@ -18,7 +18,7 @@ const mealsSlice = createSlice({
     },
     {
       id: 2,
-      date: "2023-03-08",
+      date: "2023-03-09",
       weight: 100,
       dish: {
         id: 19,
@@ -27,12 +27,12 @@ const mealsSlice = createSlice({
         fats: 1.8,
         carbohydrates: 0,
         calories: 82,
-        isFavorite: false,
+        isFavorite: true,
       },
     },
     {
       id: 3,
-      date: "2023-03-08",
+      date: "2023-03-09",
       weight: 100,
       dish: {
         id: 13,
