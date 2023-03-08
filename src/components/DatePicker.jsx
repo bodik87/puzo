@@ -55,7 +55,7 @@ export default function DatePicker() {
   }
 
   return (
-    <div className="max-w-lg w-full mx-auto mt-16 px-2 flex justify-between items-center">
+    <div className="max-w-lg w-full mx-auto mt-12 px-2 flex justify-between items-center">
       <button
         onClick={() => decreaseDate(currentDate)}
         className="datePickerBtn"

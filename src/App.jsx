@@ -6,7 +6,7 @@ export default function App() {
   const location = useLocation();
   const home = location.pathname === "/";
   return (
-    <div className="max-w-7xl mx-auto px-2 pt-2 pb-4">
+    <div className="max-w-7xl mx-auto px-2 pt-2 pb-20">
       <NavMenu />
       {home ? <HomePage /> : <Outlet />}
     </div>

@@ -18,7 +18,8 @@ const productsSlice = createSlice({
           (product.proteins = action.payload.proteins),
           (product.fats = action.payload.fats),
           (product.carbohydrates = action.payload.carbohydrates),
-          (product.calories = action.payload.calories));
+          (product.calories = action.payload.calories),
+          (product.isFavorite = action.payload.isFavorite));
       });
     },
     setFavorite: (state, action) => {

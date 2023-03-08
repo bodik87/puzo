@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
-import { AGREE, CANCEL_STEP, WARNING } from "../../assets/CONSTANTS";
+import { CANCEL, CANCEL_STEP, WARNING } from "../../assets/CONSTANTS";
 
 export default function Warning({
   openedWarning,
@@ -21,7 +21,7 @@ export default function Warning({
   return (
     <>
       <Transition appear show={openedWarning} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => {}}>
+        <Dialog as="div" className="relative z-50" onClose={() => {}}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -74,7 +74,7 @@ export default function Warning({
                         className="btn bg-red-500 hover:bg-red-500/90 active:hover:bg-red-800 text-sm md:text-base"
                         onClick={closeModals}
                       >
-                        {AGREE}
+                        {CANCEL}
                       </button>
                     </div>
                   </div>

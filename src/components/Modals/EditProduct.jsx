@@ -1,25 +1,27 @@
 import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 import { Dialog, Transition } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as Heart } from "@heroicons/react/24/solid";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   ADD_TO_FAVORITES,
   CALORIES,
   CANCEL,
-  CANCEL_CREATION,
   CARBOHIDR,
   CARBOHIDR_PLACEHOLDER,
-  CREATE,
+  DELETE,
+  EDIT,
   FATS,
   NAME,
   PROTEINS,
 } from "../../assets/CONSTANTS";
-import { addNewProduct } from "../../store/productsSlice";
-import Warning from "./Warning";
+import { deleteProduct, editProduct } from "../../store/productsSlice";
 
-export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
+export default function EditProduct({
+  product,
+  openedEditProduct,
+  setOpenedEditProduct,
+}) {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
@@ -29,19 +31,11 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
   const [carbohydrates, setCarbohydrates] = useState("");
   const [calories, setCalories] = useState("");
 
-  const [openedWarning, setOpenedWarning] = useState(false);
-  const closeModal = () => {
-    if (title) {
-      setOpenedWarning(true);
-    } else {
-      setOpenedNewProduct(false);
-      cleanInputs();
-    }
-  };
+  const closeModal = () => setOpenedEditProduct(false);
 
-  const createNewProduct = () => {
+  const updateProduct = () => {
     return {
-      id: uuidv4(),
+      id: product?.id || "",
       title: title,
       proteins: proteins,
       fats: fats,
@@ -50,35 +44,31 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
       isFavorite: checked,
     };
   };
-  const newProduct = carbohydrates && createNewProduct();
+  const updatedProduct = updateProduct();
 
-  const handleClick = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
-    dispatch(addNewProduct(newProduct));
-    cleanInputs();
-    setOpenedNewProduct(false);
+    dispatch(editProduct(updatedProduct));
+    setOpenedEditProduct(false);
   };
 
-  function cleanInputs() {
-    setTitle("");
-    setChecked("");
-    setProteins("");
-    setFats("");
-    setCarbohydrates("");
-    setCalories("");
-  }
+  const handleDelete = (id) => {
+    setOpenedEditProduct(false);
+    dispatch(deleteProduct(id));
+  };
+
+  useEffect(() => {
+    setTitle(product?.title);
+    setChecked(product?.isFavorite);
+    setProteins(product?.proteins);
+    setFats(product?.fats);
+    setCarbohydrates(product?.carbohydrates);
+    setCalories(product?.calories);
+  }, [product]);
 
   return (
     <>
-      <Warning
-        openedWarning={openedWarning}
-        setOpenedWarning={setOpenedWarning}
-        setOpenedNewProduct={setOpenedNewProduct}
-      >
-        {CANCEL_CREATION}
-      </Warning>
-
-      <Transition appear show={openedNewProduct} as={Fragment}>
+      <Transition appear show={openedEditProduct} as={Fragment}>
         <Dialog as="div" className="relative z-20" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -108,7 +98,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                     as="h3"
                     className="modalTitle px-6 pb-3 flex justify-between items-center"
                   >
-                    {CREATE}
+                    {EDIT}
                     <button
                       type="button"
                       className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-3"
@@ -118,7 +108,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                     </button>
                   </Dialog.Title>
                   <div className="px-6 pt-6 pb-4">
-                    <form onSubmit={handleClick}>
+                    <form onSubmit={handleEdit}>
                       <div className="mb-6">
                         <label className="block mb-2 font-medium text-gray-900">
                           {NAME}
@@ -127,6 +117,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           type="text"
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
+                          step={0.1}
                           placeholder={NAME}
                           className="input p-4 "
                           required
@@ -223,12 +214,21 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                         </div>
                       </div>
 
-                      <button
-                        type="submit"
-                        className="btn bg-blue-700 hover:bg-blue-800"
-                      >
-                        {CREATE}
-                      </button>
+                      <div className="flex items-center justify-center gap-2">
+                        <button
+                          type="button"
+                          className="btn bg-red-500 hover:bg-red-500/90 active:hover:bg-red-800 text-sm md:text-base"
+                          onClick={() => handleDelete(product.id)}
+                        >
+                          {DELETE}
+                        </button>
+                        <button
+                          type="submit"
+                          className="btn bg-yellow-600 hover:bg-yellow-600 text-sm md:text-base"
+                        >
+                          {EDIT}
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </Dialog.Panel>

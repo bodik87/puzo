@@ -53,12 +53,10 @@ export default function Info() {
               style={{ backgroundColor: colorNotification }}
               className={`
                 ${open ? "" : "text-opacity-90"}
-                group inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+                group flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
             >
-              <span>
-                {dailyСonsumedCalories} / {normOfCalories} кал -{" "}
-                {proteinsPercent}%
-              </span>
+              {dailyСonsumedCalories} / {normOfCalories} кал - {proteinsPercent}
+              %
               <ChevronDownIcon
                 className={`${open ? "" : "text-opacity-70"}
                   ml-2 h-5 w-5 text-white transition duration-150 ease-in-out group-hover:text-opacity-80`}
