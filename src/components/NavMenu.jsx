@@ -1,7 +1,12 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { HomeIcon } from "@heroicons/react/24/outline";
 import {
+  HomeIcon,
+  UserCircleIcon,
+  Bars3Icon,
+} from "@heroicons/react/24/outline";
+import {
+  ABOUT,
   BODY_WEIGHT,
   CATALOG,
   CREATE_NEW_PRODUCT,
@@ -34,11 +39,11 @@ export default function NavMenu() {
         setOpenedNewProduct={setOpenedNewProduct}
       />
 
-      <div className="fixed bottom-4 right-4 text-right z-50">
+      <div className="fixed bottom-16 right-4 text-right z-50">
         <Menu as="div" className="relative inline-block text-left">
           <div>
-            <Menu.Button className="btn bg-blue-700 hover:bg-blue-800">
-              {MENU}
+            <Menu.Button className="bg-white/50 backdrop-blur-sm p-3.5 shadow-md rounded-full">
+              <Bars3Icon className="h-6 w-6" />
             </Menu.Button>
           </div>
           <Transition
@@ -51,67 +56,76 @@ export default function NavMenu() {
             leaveTo="transform opacity-0 scale-95"
           >
             <Menu.Items className="absolute right-0 bottom-16 min-w-[150px] mt-2 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
-              <div className="">
-                {!home && (
-                  <Link to="/">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          className={`${
-                            active ? "bg-blue-700 text-white" : "text-gray-900"
-                          } menuItem group `}
-                        >
-                          {TO_HOME}
-                          <HomeIcon className="h-6 w-6 ml-5" />
-                        </button>
-                      )}
-                    </Menu.Item>
-                  </Link>
-                )}
-                {!recipes && (
-                  <Link to="recipes">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          className={`${
-                            active ? "bg-blue-700 text-white" : "text-gray-900"
-                          } menuItem group `}
-                        >
-                          {RECIPES}
-                        </button>
-                      )}
-                    </Menu.Item>
-                  </Link>
-                )}
-                {!catalog && (
-                  <Link to="catalog">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button
-                          className={`${
-                            active ? "bg-blue-700 text-white" : "text-gray-900"
-                          } menuItem`}
-                        >
-                          {CATALOG}
-                        </button>
-                      )}
-                    </Menu.Item>
-                  </Link>
-                )}
-              </div>
-              <div className="">
+              {!home ? (
+                <Link to="/">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-blue-700 text-white" : "text-gray-900"
+                        } menuItem group `}
+                      >
+                        {TO_HOME}
+                        <HomeIcon className="h-6 w-6 ml-5" />
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
+              ) : (
                 <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={() => setOpenedBodyWeight(true)}
-                      className={`${
-                        active ? "bg-blue-700 text-white" : "text-gray-900"
-                      } menuItem group`}
-                    >
-                      {BODY_WEIGHT}
-                    </button>
-                  )}
+                  <a
+                    href="https://portfolio-next13-nnoz.vercel.app/"
+                    className="bg-white text-gray-900 menuItem group"
+                  >
+                    <span className="flex items-center">{ABOUT}</span>
+                    <UserCircleIcon className="h-6 w-6 ml-5" />
+                  </a>
                 </Menu.Item>
+              )}
+              <div className=""></div>
+              {!recipes && (
+                <Link to="recipes">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-blue-700 text-white" : "text-gray-900"
+                        } menuItem group `}
+                      >
+                        {RECIPES}
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
+              )}
+              {!catalog && (
+                <Link to="catalog">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-blue-700 text-white" : "text-gray-900"
+                        } menuItem`}
+                      >
+                        {CATALOG}
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Link>
+              )}
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => setOpenedBodyWeight(true)}
+                    className={`${
+                      active ? "bg-blue-700 text-white" : "text-gray-900"
+                    } menuItem group`}
+                  >
+                    {BODY_WEIGHT}
+                  </button>
+                )}
+              </Menu.Item>
+              <div className="">
                 <Menu.Item>
                   {({ active }) => (
                     <button

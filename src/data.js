@@ -1,7 +1,7 @@
 export const data = [
   {
     id: 1,
-    title: "Овочі, помідор, огірок 🍅 🥒",
+    title: "Овочі, 🍅 🥒",
     proteins: 3,
     fats: 0,
     carbohydrates: 7,

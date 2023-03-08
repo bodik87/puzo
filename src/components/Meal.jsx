@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { CALORIES, NAME, WEIGHT } from "../assets/CONSTANTS";
+import { useSelector } from "react-redux";
+import { CALORIES, FAVORITES, NAME, WEIGHT } from "../assets/CONSTANTS";
+import { HeartIcon } from "@heroicons/react/24/solid";
 import Popup from "./Modals/Popup";
 
 export default function Meal({ daylyMeals, lastDishes }) {
+  const products = useSelector((state) => state.products);
+  const favoriteProducts = products.filter((product) => product.isFavorite);
   const [openedPopup, setOpenedPopup] = useState(false);
   const [mealId, setMealId] = useState("");
   const [dishTitle, setDishTitle] = useState("");
@@ -19,7 +23,7 @@ export default function Meal({ daylyMeals, lastDishes }) {
         mealId={mealId}
         dishTitle={dishTitle}
       />
-      <div className="relative mt-1 overflow-y-auto shadow-md rounded-lg">
+      <div className="relative mt-1 px-2 overflow-y-auto shadow-md rounded-lg">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-slate-300">
             <tr>
@@ -59,6 +63,21 @@ export default function Meal({ daylyMeals, lastDishes }) {
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="flex fixed w-full -bottom-[6px] md:bottom-2">
+        <div className="flex flex-nowrap overflow-x-auto pl-3">
+          <div className="mt-1 mr-2">
+            <HeartIcon style={{ fill: "#EF4444" }} className="h-8 w-8" />
+          </div>
+          {favoriteProducts.map((product) => (
+            <div
+              key={product.id}
+              className="whitespace-nowrap text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 font-medium rounded-full text-xs px-5 py-2 mr-2 mb-2 cursor-pointer"
+            >
+              {product.title}
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
