@@ -31,10 +31,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(241, 241, 241);
+  background-color: transparent;
   border-radius: 4px;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
