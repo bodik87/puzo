@@ -3,14 +3,16 @@ import { Combobox, Transition } from "@headlessui/react";
 import { useSelector } from "react-redux";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import AddMeal from "./Popups/AddMeal";
+import { NO_DATA } from "../assets/CONSTANTS";
+import LastProducts from "./LastProducts";
 
-export default function SearchBox({ favoriteProducts, editableMeal }) {
+export default function SearchBox({ favoriteProducts, lastProducts }) {
   const products = useSelector((state) => state.products);
   const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
   const [activeInput, setActiveInput] = useState(false);
 
-  const filteredPeople =
+  const filteredProducts =
     query === ""
       ? products
       : products.filter((product) =>
@@ -19,10 +21,13 @@ export default function SearchBox({ favoriteProducts, editableMeal }) {
             .replace(/\s+/g, "")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
+
   const [openedAddMeal, setOpenedAddMeal] = useState(false);
-  const [favoriteProductToMeal, setFavoriteProductToMeal] = useState("");
-  const handleAddFromFavorites = (meal) => {
-    setFavoriteProductToMeal(meal), setOpenedAddMeal(true);
+  const [productToMeal, setProductToMeal] = useState("");
+  const handleAdd = (meal) => {
+    setProductToMeal(meal);
+    setOpenedAddMeal(true);
+    setActiveInput(false);
   };
 
   return (
@@ -30,10 +35,11 @@ export default function SearchBox({ favoriteProducts, editableMeal }) {
       <AddMeal
         openedAddMeal={openedAddMeal}
         setOpenedAddMeal={setOpenedAddMeal}
-        favoriteProductToMeal={favoriteProductToMeal}
+        productToMeal={productToMeal}
       />
       <div className="relative h-[70px] w-full mt-3">
-        <Favorites array={favoriteProducts} func={handleAddFromFavorites} />
+        <LastProducts lastProducts={lastProducts} />
+        <Favorites array={favoriteProducts} func={handleAdd} />
         <Transition appear show={activeInput} as={Fragment}>
           <Transition.Child
             as={Fragment}
@@ -62,11 +68,13 @@ export default function SearchBox({ favoriteProducts, editableMeal }) {
 
               <div
                 className={`relative ${
-                  activeInput ? "w-full h-16" : "w-16 h-16"
-                } transition-all overflow-hidden rounded-full bg-white text-left border border-gray-300 shadow-md focus:outline-none`}
+                  activeInput
+                    ? "w-full h-16"
+                    : "w-16 h-16 border-green-600 border-2"
+                } transition-all overflow-hidden rounded-full bg-white text-left hover:border-gray-200  shadow-md focus:outline-none`}
               >
                 <Combobox.Input
-                  className="w-full border-none focus:outline-none py-4 pl-14 pr-10 text-xl leading-5 text-gray-900 "
+                  className="w-full border-none focus:outline-none pt-[18px] pl-14 pr-10 text-xl leading-5 text-gray-900 "
                   displayValue={(product) => product.title}
                   onChange={(event) => setQuery(event.target.value)}
                 />
@@ -79,16 +87,17 @@ export default function SearchBox({ favoriteProducts, editableMeal }) {
                 afterLeave={() => setQuery("")}
               >
                 <Combobox.Options className="absolute z-50 mt-1 max-h-60 w-full overflow-y-auto rounded-3xl bg-white py-2 text-base shadow-lg focus:outline-none sm:text-sm">
-                  {filteredPeople.length === 0 && query !== "" ? (
+                  {filteredProducts.length === 0 && query !== "" ? (
                     <div className="relative cursor-default select-none py-4 px-4 text-gray-700">
-                      Нічого не знайдено
+                      {NO_DATA}
                     </div>
                   ) : (
-                    filteredPeople.map((product) => (
+                    filteredProducts.map((product) => (
                       <Combobox.Option
                         key={product.id}
+                        onClick={() => handleAdd(product)}
                         className={({ active }) =>
-                          `relative cursor-pointer select-none py-4 text-lg px-4 mx-2 rounded-xl ${
+                          `relative cursor-pointer select-none py-4 text-lg px-4 mx-2 rounded-2xl ${
                             active ? "bg-blue-600 text-white" : "text-gray-900"
                           }`
                         }

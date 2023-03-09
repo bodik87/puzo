@@ -8,7 +8,7 @@ import { addMeal } from "../../store/mealsSlice";
 export default function AddMeal({
   openedAddMeal,
   setOpenedAddMeal,
-  favoriteProductToMeal,
+  productToMeal,
 }) {
   const dispatch = useDispatch();
   const { date } = useSelector((state) => state.date);
@@ -24,14 +24,16 @@ export default function AddMeal({
       id: uuidv4(),
       date: date,
       weight: value,
-      dish: favoriteProductToMeal,
+      dish: productToMeal,
     };
   };
-  const newMeal = favoriteProductToMeal && value && createNewMeal();
+  const newMeal = productToMeal && value && createNewMeal();
   const handleAddNewMeal = () => {
-    dispatch(addMeal(newMeal));
-    closeModal();
-    setValue("");
+    if (value) {
+      dispatch(addMeal(newMeal));
+      closeModal();
+      setValue("");
+    }
   };
 
   return (
@@ -65,7 +67,7 @@ export default function AddMeal({
                   <Dialog.Title as="h3" className="modalTitle">
                     <div className="flex flex-col">
                       <div className="pb-6 select-none">
-                        {favoriteProductToMeal.title}
+                        {productToMeal.title}
                       </div>
                       <input
                         type="number"

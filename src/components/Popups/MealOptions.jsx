@@ -97,7 +97,7 @@ export default function MealOptions({
                         {GRAM}
                       </span>
                       <div className="flex items-center h-5 cursor-pointer select-none">
-                        {checked ? (
+                        {/* {checked ? (
                           <Heart
                             style={{ fill: "#EF4444" }}
                             onClick={handleUpdate}
@@ -109,7 +109,7 @@ export default function MealOptions({
                             onClick={handleUpdate}
                             className="h-8 w-8"
                           />
-                        )}
+                        )} */}
                         <input
                           id="favorite"
                           type="checkbox"

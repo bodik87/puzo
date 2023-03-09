@@ -22,6 +22,8 @@ import {
 
 export default function Info() {
   const meals = useSelector((state) => state.meals);
+  const { date } = useSelector((state) => state.date);
+  const daylyMeals = meals.filter((meal) => meal.date === date);
   const weight = useSelector((state) => state.weight);
   const { normOfProteins, normOfFats, normOfCarbohydrates, normOfCalories } =
     getDaylyNorm(weight);
@@ -31,7 +33,7 @@ export default function Info() {
     dailyСonsumedProteins,
     dailyСonsumedFats,
     dailyСonsumedCarbohydrates,
-  } = getDailyСonsumedNutrients(meals);
+  } = getDailyСonsumedNutrients(daylyMeals);
   const caloriesPercentage = Math.round(
     (dailyСonsumedCalories / normOfCalories) * 100
   );

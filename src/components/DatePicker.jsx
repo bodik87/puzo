@@ -55,7 +55,7 @@ export default function DatePicker() {
   }
 
   return (
-    <div className="max-w-lg mt-14 pr-4 flex items-center justify-end gap-3">
+    <div className="max-w-lg mt-16 pr-4 flex items-center justify-end gap-3">
       <div className="bg-white/90 px-5 py-2 rounded-full flex justify-center items-center text-sm font-semibold relative">
         <span>{textFormatedDay.toUpperCase()}</span>
 

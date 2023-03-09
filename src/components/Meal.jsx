@@ -7,7 +7,7 @@ import MealOptions from "./Popups/MealOptions";
 import { getPossibilityToAdd } from "../functions/getPossibilityToAdd";
 import { LET_ADD, NONE, NOTHING_ADDED } from "../assets/CONSTANTS";
 
-export default function Meal({ daylyMeals, lastDishes }) {
+export default function Meal({ daylyMeals, lastProducts }) {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
   const { date } = useSelector((state) => state.date);
@@ -46,7 +46,12 @@ export default function Meal({ daylyMeals, lastDishes }) {
         onEdit={handleIncreaseWeight}
       />
 
-      {possibilityToAdd && <SearchBox favoriteProducts={favoriteProducts} />}
+      {possibilityToAdd && (
+        <SearchBox
+          favoriteProducts={favoriteProducts}
+          lastProducts={lastProducts}
+        />
+      )}
 
       <div className="mt-3 relative">
         {daylyMeals.length ? (
@@ -79,14 +84,8 @@ export default function Meal({ daylyMeals, lastDishes }) {
         ) : (
           <div className="bg-white/50 text-gray-900 backdrop-blur-xl shadow-sm relative mx-2 px-6 pt-6 pb-6 mb-2 rounded-3xl border border-gray-200">
             {possibilityToAdd && (
-              <div
-                // onClick={() => handleClick(meal.id, meal.dish.title)}
-                className="bg-white rounded-full shadow-md absolute z-10 top-3 right-4 py-1 px-3 text-gray-900 cursor-pointer hover:scale-105 transition-all"
-              >
-                Додати з останніх
-              </div>
+              <p className="rounded-full text-gray-900">{NONE}</p>
             )}
-            <p className="rounded-full text-gray-900">{NONE}</p>
             <div className="text-2xl font-semibold">
               {possibilityToAdd ? LET_ADD : NOTHING_ADDED}
             </div>
