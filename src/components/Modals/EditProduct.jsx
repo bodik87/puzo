@@ -14,6 +14,7 @@ import {
   FATS,
   NAME,
   PROTEINS,
+  DELETE_FROM_FAVORITES,
 } from "../../assets/CONSTANTS";
 import { deleteProduct, editProduct } from "../../store/productsSlice";
 
@@ -53,8 +54,8 @@ export default function EditProduct({
   };
 
   const handleDelete = (id) => {
-    setOpenedEditProduct(false);
     dispatch(deleteProduct(id));
+    setOpenedEditProduct(false);
   };
 
   useEffect(() => {
@@ -131,6 +132,8 @@ export default function EditProduct({
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={proteins}
                             onChange={(e) => setProteins(e.target.value)}
                             className="input px-2 py-3 md:px-4 text-sm"
@@ -144,6 +147,8 @@ export default function EditProduct({
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={fats}
                             onChange={(e) => setFats(e.target.value)}
                             className="input px-2 py-3 md:px-4 text-sm"
@@ -157,6 +162,8 @@ export default function EditProduct({
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={carbohydrates}
                             onChange={(e) => setCarbohydrates(e.target.value)}
                             className="input px-2 py-3 md:px-4 text-sm"
@@ -173,6 +180,8 @@ export default function EditProduct({
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={calories}
                             onChange={(e) => setCalories(e.target.value)}
                             className="input px-2 py-4 md:px-4"
@@ -183,19 +192,6 @@ export default function EditProduct({
 
                         <div className="flex flex-col md:flex-row gap-2 justify-center items-center select-none">
                           <div className="flex items-center h-5 cursor-pointer">
-                            {checked ? (
-                              <Heart
-                                style={{ fill: "#EF4444" }}
-                                onClick={() => setChecked(!checked)}
-                                className="h-8 w-8 animate-scale"
-                              />
-                            ) : (
-                              <HeartIcon
-                                style={{ stroke: "#EF4444" }}
-                                onClick={() => setChecked(!checked)}
-                                className="h-8 w-8"
-                              />
-                            )}
                             <input
                               id="favorite"
                               type="checkbox"
@@ -209,8 +205,21 @@ export default function EditProduct({
                             htmlFor="favorite"
                             className="text-sm font-medium text-gray-900 cursor-pointer select-none"
                           >
-                            {ADD_TO_FAVORITES}
+                            {checked ? DELETE_FROM_FAVORITES : ADD_TO_FAVORITES}
                           </label>
+                          {checked ? (
+                            <Heart
+                              style={{ fill: "#EF4444" }}
+                              onClick={() => setChecked(!checked)}
+                              className="h-8 w-8 animate-scale"
+                            />
+                          ) : (
+                            <HeartIcon
+                              style={{ stroke: "#EF4444" }}
+                              onClick={() => setChecked(!checked)}
+                              className="h-8 w-8"
+                            />
+                          )}
                         </div>
                       </div>
 

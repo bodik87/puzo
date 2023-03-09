@@ -6,6 +6,7 @@ import { HeartIcon as Heart } from "@heroicons/react/24/solid";
 import { Fragment, useState } from "react";
 import {
   ADD_TO_FAVORITES,
+  DELETE_FROM_FAVORITES,
   CALORIES,
   CANCEL,
   CANCEL_CREATION,
@@ -17,7 +18,7 @@ import {
   PROTEINS,
 } from "../../assets/CONSTANTS";
 import { addNewProduct } from "../../store/productsSlice";
-import Warning from "./Warning";
+import Warning from "../Popups/Warning";
 
 export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
   const dispatch = useDispatch();
@@ -140,6 +141,8 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={proteins}
                             onChange={(e) => setProteins(e.target.value)}
                             className="input px-4 py-3 md:px-4 text-sm"
@@ -153,6 +156,8 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={fats}
                             onChange={(e) => setFats(e.target.value)}
                             className="input px-4 py-3 md:px-4 text-sm"
@@ -166,6 +171,8 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={carbohydrates}
                             onChange={(e) => setCarbohydrates(e.target.value)}
                             className="input px-4 py-3 md:px-4 text-sm"
@@ -182,6 +189,8 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            step={0.1}
                             value={calories}
                             onChange={(e) => setCalories(e.target.value)}
                             className="input px-4 py-4 md:px-4"
@@ -192,19 +201,6 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                         <div className="flex flex-col md:flex-row gap-2 justify-center items-center select-none">
                           <div className="flex items-center h-5 cursor-pointer">
-                            {checked ? (
-                              <Heart
-                                style={{ fill: "#EF4444" }}
-                                onClick={() => setChecked(!checked)}
-                                className="h-8 w-8 animate-scale"
-                              />
-                            ) : (
-                              <HeartIcon
-                                style={{ stroke: "#EF4444" }}
-                                onClick={() => setChecked(!checked)}
-                                className="h-8 w-8"
-                              />
-                            )}
                             <input
                               id="favorite"
                               type="checkbox"
@@ -218,8 +214,21 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                             htmlFor="favorite"
                             className="text-sm font-medium text-gray-900 cursor-pointer select-none"
                           >
-                            {ADD_TO_FAVORITES}
+                            {checked ? DELETE_FROM_FAVORITES : ADD_TO_FAVORITES}
                           </label>
+                          {checked ? (
+                            <Heart
+                              style={{ fill: "#EF4444" }}
+                              onClick={() => setChecked(!checked)}
+                              className="h-8 w-8 animate-scale"
+                            />
+                          ) : (
+                            <HeartIcon
+                              style={{ stroke: "#EF4444" }}
+                              onClick={() => setChecked(!checked)}
+                              className="h-8 w-8"
+                            />
+                          )}
                         </div>
                       </div>
 

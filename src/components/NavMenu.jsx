@@ -10,7 +10,6 @@ import {
   BODY_WEIGHT,
   CATALOG,
   CREATE_NEW_PRODUCT,
-  MENU,
   RECIPES,
   TO_HOME,
 } from "../assets/CONSTANTS";

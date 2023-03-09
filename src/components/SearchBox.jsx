@@ -1,8 +1,7 @@
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
-import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useSelector } from "react-redux";
-import { HeartIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 export default function SearchBox({ favoriteProducts }) {
   const products = useSelector((state) => state.products);

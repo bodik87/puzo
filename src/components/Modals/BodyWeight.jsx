@@ -63,6 +63,7 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                         step={0.1}
                         placeholder={BODY_WEIGHT}
                         className="input p-4 text-2xl"
+                        min="50"
                         required
                       />
                     </div>

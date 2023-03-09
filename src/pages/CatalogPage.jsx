@@ -13,6 +13,7 @@ export default function CatalogPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [editableProduct, seteEditableProduct] = useState(null);
   const [openedEditProduct, setOpenedEditProduct] = useState(false);
+
   const handleClick = (product) => {
     seteEditableProduct(product);
     setOpenedEditProduct(true);
@@ -30,7 +31,7 @@ export default function CatalogPage() {
   useEffect(() => {
     setFilteredProducts(products);
     setSearchQuery("");
-  }, [products]);
+  }, [products, editableProduct]);
 
   return (
     <>
@@ -89,7 +90,7 @@ export default function CatalogPage() {
                 key={product.id}
                 onClick={() => handleClick(product)}
                 className={`bg-slate-50 border-b odd:bg-white ${
-                  product.isFavorite && "bg-red-50 odd:bg-red-50"
+                  product.isFavorite && "bg-red-200 odd:bg-red-200"
                 } cursor-pointer`}
               >
                 <th

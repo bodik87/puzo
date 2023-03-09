@@ -10,8 +10,15 @@ import {
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
-import { CALORIES, CARBOHIDR, FATS, PROTEINS } from "../assets/CONSTANTS";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import {
+  CAL,
+  CALORIES,
+  CARBOHIDR,
+  FATS,
+  INFO,
+  PROTEINS,
+  PUZO,
+} from "../assets/CONSTANTS";
 
 export default function Info() {
   const meals = useSelector((state) => state.meals);
@@ -57,8 +64,9 @@ export default function Info() {
                 group flex items-center rounded-full py-2 pl-3 pr-5 text-xl font-medium text-white hover:text-opacity-100 focus:outline-none`}
             >
               <ChevronDownIcon className="mr-2 h-5 w-5 text-white" />
-              {Math.round((dailyСonsumedCalories / normOfCalories) * 100)}{" "}
-              <span className="text-sm ml-1">%</span>
+              {`${Math.round(dailyСonsumedCalories)} ${CAL} -
+              ${Math.round((dailyСonsumedCalories / normOfCalories) * 100)}`}
+              %
             </Popover.Button>
             <Transition
               as={Fragment}
@@ -107,19 +115,17 @@ export default function Info() {
                       size="60px"
                     />
                   </div>
-                  <div className="bg-gray-50 px-6 py-4">
+                  <div className="bg-gray-50 px-6 py-4 select-none">
                     {/* <a
                       href="##"
                       className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     > */}
                     <span className="flex items-center">
                       <span className="text-sm font-medium text-gray-900">
-                        ПУЗО
+                        {PUZO}
                       </span>
                     </span>
-                    <span className="block text-sm text-gray-500">
-                      Додаток для подрахунку калорій
-                    </span>
+                    <span className="block text-sm text-gray-500">{INFO}</span>
                     {/* </a> */}
                   </div>
                 </div>
@@ -141,7 +147,7 @@ function Nutrient({
   size,
 }) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 select-none">
       <div style={{ width: size }}>
         <CircularProgressbar
           value={percent}

@@ -11,7 +11,7 @@ export const data = [
   {
     id: 2,
     title: "Морква по-корейськи",
-    proteins: 1.25,
+    proteins: 1.2,
     fats: 6.6,
     carbohydrates: 9.6,
     calories: 122,
@@ -220,7 +220,7 @@ export const data = [
     title: "Міді",
     proteins: 14,
     fats: 2.2,
-    carbohydrates: 1.25,
+    carbohydrates: 1.2,
     calories: 91,
     isFavorite: false,
   },
