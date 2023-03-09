@@ -12,8 +12,8 @@ export default function HomePage() {
   const lastDishes = getLastDishes(meals);
   return (
     <>
-      <Info />
       <DatePicker />
+      <Info />
       <Meal daylyMeals={daylyMeals} lastDishes={lastDishes} />
     </>
   );

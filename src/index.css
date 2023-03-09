@@ -7,12 +7,12 @@
 }
 
 body {
-  background-color: rgb(241, 241, 241);
+  background-color: #dde4e6;
 }
 
 @layer components {
   .btn {
-    @apply w-full px-5 py-3 text-white font-medium flex justify-center items-center rounded-lg transition-all select-none focus:ring-4 focus:outline-none focus:ring-gray-300;
+    @apply w-full px-5 py-3 text-white font-medium flex justify-center items-center rounded-lg transition-all select-none focus:ring-4 focus:outline-none;
   }
   .menuItem {
     @apply flex w-full items-center px-8 py-4 text-xl select-none whitespace-nowrap;
@@ -33,10 +33,10 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 4px;
-  margin: 12px;
+  margin: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #c2c2c2;
+  background-color: #dde4e6;
   border-radius: 4px;
 }

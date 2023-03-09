@@ -43,7 +43,7 @@ export default function NavMenu() {
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button className="bg-white/50 backdrop-blur-sm p-3.5 shadow-md rounded-full">
-              <Bars3Icon className="h-6 w-6" />
+              <Bars3Icon className="h-8 w-8" />
             </Menu.Button>
           </div>
           <Transition
@@ -75,7 +75,7 @@ export default function NavMenu() {
                 <Menu.Item>
                   <a
                     href="https://portfolio-next13-nnoz.vercel.app/"
-                    className="bg-white text-gray-900 menuItem group"
+                    className="bg-white text-gray-900 hover:bg-violet-700 hover:text-white transition-colors menuItem group"
                   >
                     <span className="flex items-center">{ABOUT}</span>
                     <UserCircleIcon className="h-6 w-6 ml-5" />

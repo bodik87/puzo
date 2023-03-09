@@ -55,7 +55,7 @@ export default function Popup({
                     <div className="mt-6 flex justify-center">
                       <button
                         type="button"
-                        className="btn bg-green-500 hover:bg-green-500/90 active:hover:bg-green-800 text-sm md:text-base"
+                        className="btn bg-green-600 hover:bg-green-600/90 active:hover:bg-green-800 text-base md:text-base py-5"
                         onClick={closeModal}
                       >
                         {ADD_AGAIN}
@@ -64,14 +64,14 @@ export default function Popup({
                     <div className="mt-2 flex gap-2">
                       <button
                         type="button"
-                        className="btn bg-red-500 hover:bg-red-500/90 flex flex-nowrap text-sm md:text-base"
+                        className="btn bg-red-500 hover:bg-red-500/90 flex flex-nowrap text-base md:text-base py-5"
                         onClick={closeModal}
                       >
                         {DELETE}
                       </button>
                       <button
                         type="button"
-                        className="btn bg-yellow-500 hover:bg-yellow-500/90 active:hover:bg-yellow-800 text-sm md:text-base"
+                        className="btn bg-yellow-500 hover:bg-yellow-500/90 active:hover:bg-yellow-800 text-base py-5"
                         onClick={closeModal}
                       >
                         {EDIT}

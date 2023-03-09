@@ -55,10 +55,10 @@ export default function DatePicker() {
   }
 
   return (
-    <div className="max-w-lg w-full mx-auto mt-12 px-2 flex justify-between items-center">
+    <div className="max-w-lg w-full mx-auto mt-12 px-3 py-2 flex justify-between items-center">
       <button
         onClick={() => decreaseDate(currentDate)}
-        className="datePickerBtn"
+        className="bg-white/50 p-2 rounded-full"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function DatePicker() {
         </svg>
       </button>
 
-      <div className="flex justify-center items-center text-sm font-semibold relative">
+      <div className="bg-white px-6 py-2 rounded-full flex justify-center items-center text-sm font-semibold relative">
         <span>{textFormatedDay.toUpperCase()}</span>
 
         <input
@@ -89,7 +89,7 @@ export default function DatePicker() {
 
       <button
         onClick={() => increaseDate(currentDate)}
-        className="datePickerBtn"
+        className="bg-white/50 p-2 rounded-full"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
