@@ -51,7 +51,7 @@ export default function SearchBox({ favoriteProducts }) {
 
             <div
               className={`relative ${
-                activeInput ? "w-full" : "w-16"
+                activeInput ? "w-full h-16" : "w-16 h-16"
               } transition-all overflow-hidden rounded-full bg-white text-left border border-gray-300 shadow-md focus:outline-none`}
             >
               <Combobox.Input

@@ -22,7 +22,7 @@ export default function App() {
             rx="298"
             ry="259.5"
             fill="#7A9AFF"
-            fill-opacity="0.44"
+            fillOpacity="0.44"
           />
         </g>
         <defs>
@@ -33,9 +33,9 @@ export default function App() {
             width="996"
             height="919"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
