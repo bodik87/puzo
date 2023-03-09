@@ -12,16 +12,16 @@ body {
 
 @layer components {
   .btn {
-    @apply w-full px-5 py-3 text-white font-medium flex justify-center items-center rounded-lg transition-all select-none focus:ring-4 focus:outline-none;
+    @apply w-full px-5 py-4 text-white font-medium flex justify-center items-center rounded-lg transition-all select-none text-xl focus:ring-4 focus:outline-none;
   }
   .menuItem {
     @apply flex w-full items-center px-8 py-4 text-xl select-none whitespace-nowrap;
   }
   .input {
-    @apply block w-full border border-gray-300 rounded-lg bg-gray-50 focus:outline-[#4285F4];
+    @apply block w-full border border-gray-300 rounded-2xl bg-gray-50 focus:outline-[#4285F4];
   }
   .modalTitle {
-    @apply pb-2 text-xl font-semibold leading-6 text-gray-900;
+    @apply pb-2 text-2xl font-semibold leading-6 text-gray-900;
   }
 }
 

@@ -120,7 +120,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                   <div className="px-6 pb-4">
                     <form onSubmit={handleClick}>
                       <div className="mb-4">
-                        <label className="block mb-1 font-medium text-gray-900">
+                        <label className="block ml-2 mb-1 font-medium text-gray-900">
                           {NAME}
                         </label>
                         <input
@@ -135,40 +135,40 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                       <div className="grid grid-cols-3 gap-4">
                         <div className="mb-6">
-                          <label className="block mb-1 text-sm font-medium text-gray-900">
+                          <label className="block ml-2 mb-1 text-sm font-medium text-gray-900">
                             {PROTEINS}
                           </label>
                           <input
                             type="number"
                             value={proteins}
                             onChange={(e) => setProteins(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 md:px-4 text-sm"
                             placeholder={PROTEINS}
                             required
                           />
                         </div>
                         <div className="mb-6">
-                          <label className="block mb-1 text-sm font-medium text-gray-900">
+                          <label className="block ml-2 mb-1 text-sm font-medium text-gray-900">
                             {FATS}
                           </label>
                           <input
                             type="number"
                             value={fats}
                             onChange={(e) => setFats(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 md:px-4 text-sm"
                             placeholder={FATS}
                             required
                           />
                         </div>
                         <div className="mb-6">
-                          <label className="block mb-1 text-sm font-medium text-gray-900">
+                          <label className="block ml-2 mb-1 text-sm font-medium text-gray-900">
                             {CARBOHIDR}
                           </label>
                           <input
                             type="number"
                             value={carbohydrates}
                             onChange={(e) => setCarbohydrates(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 md:px-4 text-sm"
                             placeholder={CARBOHIDR_PLACEHOLDER}
                             required
                           />
@@ -177,14 +177,14 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
 
                       <div className="grid grid-cols-2 items-center">
                         <div className="mb-6">
-                          <label className="block mb-1 font-medium text-gray-900">
+                          <label className="block ml-2 mb-1 font-medium text-gray-900">
                             {CALORIES}
                           </label>
                           <input
                             type="number"
                             value={calories}
                             onChange={(e) => setCalories(e.target.value)}
-                            className="input px-2 py-4 md:px-4"
+                            className="input px-4 py-4 md:px-4"
                             placeholder={CALORIES}
                             required
                           />

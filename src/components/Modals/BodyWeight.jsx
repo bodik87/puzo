@@ -45,7 +45,7 @@ export default function BodyWeight({ openedBodyWeight, setOpenedBodyWeight }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xs transform overflow-hidden rounded-2xl bg-white/70 backdrop-blur-lg p-6 text-left align-middle shadow-lg transition-all">
+                <Dialog.Panel className="w-full max-w-xs transform overflow-hidden rounded-2xl bg-white/80 backdrop-blur-lg p-6 text-left align-middle shadow-lg transition-all">
                   <Dialog.Title as="h3" className="modalTitle">
                     {BODY_WEIGHT}
                   </Dialog.Title>
