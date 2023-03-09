@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { format } from "date-fns";
+import { add, format } from "date-fns";
 
 export const today = format(new Date(), "yyyy-MM-dd");
+export const yesterday = format(add(new Date(), { days: -1 }), "yyyy-MM-dd");
+
 const initialState = { date: today };
 
 const dateSlice = createSlice({

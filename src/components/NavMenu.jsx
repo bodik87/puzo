@@ -38,7 +38,7 @@ export default function NavMenu() {
         setOpenedNewProduct={setOpenedNewProduct}
       />
 
-      <div className="fixed bottom-16 right-4 text-right z-20">
+      <div className="fixed bottom-4 right-4 text-right z-20">
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button className="bg-white/50 backdrop-blur-sm p-4 shadow-md rounded-full">

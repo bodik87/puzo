@@ -1,50 +1,42 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { EDIT_WEIGHT, GRAM } from "../../assets/CONSTANTS";
-import { editMeal } from "../../store/mealsSlice";
+import { Fragment, useState } from "react";
+import { ADD, ADD_WEIGHT } from "../../assets/CONSTANTS";
+import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
+import { addMeal } from "../../store/mealsSlice";
 
-export default function EditMealWeight({
-  title,
-  meal,
-  openedProductWeightPopup,
-  setOpenedProductWeightPopup,
-  setOpenedPopup,
+export default function AddMeal({
+  openedAddMeal,
+  setOpenedAddMeal,
+  favoriteProductToMeal,
 }) {
   const dispatch = useDispatch();
+  const { date } = useSelector((state) => state.date);
+
   const [value, setValue] = useState("");
 
   function closeModal() {
-    setOpenedProductWeightPopup(false);
+    setOpenedAddMeal(false);
   }
 
-  function closeModals() {
-    setOpenedProductWeightPopup(false);
-    setOpenedPopup(false);
-    setValue("");
-  }
-
-  useEffect(() => {
-    setValue(meal.weight);
-  }, [meal]);
-
-  const createUpdatedProduct = () => {
+  const createNewMeal = () => {
     return {
-      id: meal.id,
+      id: uuidv4(),
+      date: date,
       weight: value,
-      isFavorite: meal.dish.isFavorite,
+      dish: favoriteProductToMeal,
     };
   };
-  const updatedProduct = value && createUpdatedProduct();
-
-  const handleUpdate = () => {
-    dispatch(editMeal(updatedProduct));
-    closeModals();
+  const newMeal = favoriteProductToMeal && value && createNewMeal();
+  const handleAddNewMeal = () => {
+    dispatch(addMeal(newMeal));
+    closeModal();
+    setValue("");
   };
 
   return (
     <>
-      <Transition appear show={openedProductWeightPopup} as={Fragment}>
+      <Transition appear show={openedAddMeal} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -69,30 +61,33 @@ export default function EditMealWeight({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-3xl bg-white/60 backdrop-blur-md p-6 text-left align-middle shadow-lg transition-all">
+                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-3xl bg-white/80 backdrop-blur-md p-6 text-left align-middle shadow-lg transition-all">
                   <Dialog.Title as="h3" className="modalTitle">
-                    {title}, {meal.weight}
-                    {GRAM}
+                    <div className="flex flex-col">
+                      <div className="pb-6 select-none">
+                        {favoriteProductToMeal.title}
+                      </div>
+                      <input
+                        type="number"
+                        min="0"
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        step={1}
+                        placeholder={ADD_WEIGHT}
+                        className="input p-4 text-2xl"
+                        required
+                      />
+                    </div>
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <input
-                      type="number"
-                      min="5"
-                      value={value}
-                      onChange={(e) => setValue(e.target.value)}
-                      step={5}
-                      placeholder={EDIT_WEIGHT}
-                      className="input p-4 text-2xl"
-                      required
-                    />
 
+                  <div className="flex flex-col justify-center gap-2">
                     <div className="mt-6 flex justify-center">
                       <button
                         type="button"
                         className="btn rounded-3xl bg-blue-700 hover:bg-blue-700/90 text-xl py-5"
-                        onClick={handleUpdate}
+                        onClick={handleAddNewMeal}
                       >
-                        {EDIT_WEIGHT}
+                        {ADD}
                       </button>
                     </div>
                   </div>

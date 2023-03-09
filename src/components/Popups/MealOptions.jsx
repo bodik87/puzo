@@ -43,12 +43,10 @@ export default function MealOptions({
   const updatedValue = editableMeal && createUpdatedValue();
 
   const handleUpdate = () => {
-    setChecked(!checked);
     dispatch(setFavorite(updatedValue));
     dispatch(editMeal(updatedValue));
+    setChecked(!checked);
   };
-
-  console.log(updatedValue);
 
   return (
     <>
