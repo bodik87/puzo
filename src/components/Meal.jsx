@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import Popup from "./Modals/Popup";
 import SearchBox from "./SearchBox";
+import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 
 export default function Meal({ daylyMeals, lastDishes }) {
   const products = useSelector((state) => state.products);
@@ -16,18 +16,6 @@ export default function Meal({ daylyMeals, lastDishes }) {
     setDishTitle(title);
   };
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleChange = (e) => {
-    let lowerCase = e.target.value.toLowerCase().trim();
-    const filteredData = products.filter((el) => {
-      if (lowerCase === "") return products;
-      else return el.title.trim().toLowerCase().includes(lowerCase);
-    });
-    setFilteredProducts(filteredData);
-    setSearchQuery(lowerCase);
-  };
   return (
     <>
       <Popup

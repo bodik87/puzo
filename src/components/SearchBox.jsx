@@ -21,7 +21,7 @@ export default function SearchBox({ favoriteProducts }) {
         );
 
   return (
-    <div className="relative h-20 w-full">
+    <div className="relative h-20 w-full mt-3">
       <Favorites array={favoriteProducts} />
       <Transition appear show={activeInput} as={Fragment}>
         <Transition.Child
@@ -117,12 +117,6 @@ function Favorites({ array }) {
   return (
     <div className="absolute w-full top-1 overflow-hidden">
       <div className="flex flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-20 sm:mb-0">
-        {/* <div className="mt-1 mr-2">
-          <HeartIcon
-            style={{ fill: "#EF4444" }}
-            className="h-12 w-12 animate-scale"
-          />
-        </div> */}
         {array.map((product) => (
           <div
             key={product.id}

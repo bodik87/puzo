@@ -55,57 +55,57 @@ export default function DatePicker() {
   }
 
   return (
-    <div className="max-w-lg w-full mx-auto mt-12 px-3 py-2 flex justify-between items-center">
-      <button
-        onClick={() => decreaseDate(currentDate)}
-        className="bg-white/50 p-2 rounded-full hover:bg-white  active:scale-95 transition-all"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 19.5L8.25 12l7.5-7.5"
-          />
-        </svg>
-      </button>
-
+    <div className="max-w-lg mx-auto pr-2 flex flex-col justify-between items-end">
       <div className="bg-white/80 px-6 py-2 rounded-full flex justify-center items-center text-sm font-semibold relative">
         <span>{textFormatedDay.toUpperCase()}</span>
 
         <input
           type="date"
           value={currentDate}
-          className="bg-transparent p-2 rounded-full outline-none"
+          className="bg-transparent pl-2 py-2 rounded-full outline-none"
           onChange={handleDateChange}
         />
       </div>
-
-      <button
-        onClick={() => increaseDate(currentDate)}
-        className="bg-white/50 p-2 rounded-full hover:bg-white hover:scale-105 active:scale-95 transition-all"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
+      <div className="mt-2 flex gap-4">
+        <button
+          onClick={() => decreaseDate(currentDate)}
+          className="bg-white/50 p-2 rounded-full hover:bg-white  active:scale-95 transition-all"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={() => increaseDate(currentDate)}
+          className="bg-white/50 p-2 rounded-full hover:bg-white hover:scale-105 active:scale-95 transition-all"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }
