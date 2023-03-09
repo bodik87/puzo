@@ -55,7 +55,7 @@ export default function Meal({ daylyMeals, lastDishes }) {
             {daylyMeals.map((meal) => (
               <div
                 key={meal.id}
-                className="bg-blue-700 text-white backdrop-blur-xl shadow-sm relative mx-2 px-6 pt-6 pb-6 mb-2 rounded-3xl border border-gray-200"
+                className="bg-blue-700 text-white backdrop-blur-xl shadow-sm relative mx-2 px-6 pt-6 pb-5 mb-2 rounded-3xl border border-gray-200"
               >
                 <div
                   onClick={() => handleClick(meal, meal.dish.title)}
@@ -63,20 +63,11 @@ export default function Meal({ daylyMeals, lastDishes }) {
                 >
                   <EllipsisHorizontalIcon className="h-6 w-6" />
                 </div>
-                <div className="flex gap-2">
-                  <p className="rounded-full text-white/70 ">
-                    {meal.weight}г -{" "}
-                    {Math.round((meal.dish.calories * meal.weight) / 100)} кал
-                  </p>
-                  {meal.dish.isFavorite && (
-                    <Heart
-                      style={{ fill: "#CDD7E5" }}
-                      className="h-6 w-6 ml-2"
-                    />
-                  )}
-                </div>
-
-                <div className="text-2xl font-semibold">
+                <p className="rounded-full text-white/70">
+                  {meal.weight}г -{" "}
+                  {Math.round((meal.dish.calories * meal.weight) / 100)} кал
+                </p>
+                <div className="text-2xl font-semibold mt-2">
                   {meal.dish.title.length < 28
                     ? meal.dish.title
                     : meal.dish.title.slice(0, 28) + "..."}
