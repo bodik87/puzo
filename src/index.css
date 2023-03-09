@@ -15,7 +15,7 @@ body {
     @apply w-full px-5 py-3 text-white font-medium flex justify-center items-center rounded-lg transition-all select-none focus:ring-4 focus:outline-none focus:ring-gray-300;
   }
   .menuItem {
-    @apply flex w-full items-center px-6 py-3 select-none whitespace-nowrap;
+    @apply flex w-full items-center px-8 py-4 text-xl select-none whitespace-nowrap;
   }
   .input {
     @apply block w-full border border-gray-300 rounded-lg bg-gray-50 focus:outline-[#4285F4];
