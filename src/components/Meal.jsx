@@ -5,7 +5,12 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import { deleteMeal, editMeal } from "../store/mealsSlice";
 import MealOptions from "./Popups/MealOptions";
 import { getPossibilityToAdd } from "../functions/getPossibilityToAdd";
-import { LET_ADD, NONE, NOTHING_ADDED } from "../assets/CONSTANTS";
+import {
+  LET_ADD,
+  NONE,
+  NONE_SECOND_LINE,
+  NOTHING_ADDED,
+} from "../assets/CONSTANTS";
 
 export default function Meal({ daylyMeals, lastProducts }) {
   const dispatch = useDispatch();
@@ -85,6 +90,9 @@ export default function Meal({ daylyMeals, lastProducts }) {
           <div className="bg-white/50 text-gray-900 backdrop-blur-xl shadow-sm relative mx-2 px-6 pt-6 pb-6 mb-2 rounded-3xl border border-gray-200">
             {possibilityToAdd && (
               <p className="rounded-full text-gray-900">{NONE}</p>
+            )}
+            {possibilityToAdd && (
+              <p className="rounded-full text-gray-900">{NONE_SECOND_LINE}</p>
             )}
             <div className="text-2xl font-semibold">
               {possibilityToAdd ? LET_ADD : NOTHING_ADDED}
