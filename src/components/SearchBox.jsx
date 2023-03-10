@@ -5,6 +5,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import AddMeal from "./Popups/AddMeal";
 import { NO_DATA } from "../assets/CONSTANTS";
 import LastProducts from "./LastProducts";
+import { HeartIcon } from "@heroicons/react/24/solid";
 
 export default function SearchBox({ favoriteProducts, lastProducts }) {
   const products = useSelector((state) => state.products);
@@ -137,7 +138,11 @@ export default function SearchBox({ favoriteProducts, lastProducts }) {
 function Favorites({ array, func }) {
   return (
     <div className="absolute w-full top-1 overflow-hidden">
-      <div className="flex flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-20 sm:mb-0">
+      <div className="flex items-center flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-[120px] sm:mb-0 relative">
+        <HeartIcon
+          style={{ fill: "#EF4444" }}
+          className="absolute top-3 left-20 h-8 w-8 animate-scale"
+        />
         {array.map((product) => (
           <div
             key={product.id}
