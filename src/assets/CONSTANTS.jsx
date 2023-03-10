@@ -48,6 +48,8 @@ export const NO_DATA = "Нічого не знайдено";
 export const LAST = "Попередні";
 export const LAST_INFO = "Перелік за попередні 3 дні";
 export const LAST_PRODUCT_NOTHING = "За попередні дні інформація відсутня";
+export const CLEAN =
+  "Скинути додаток до початкового стану. ВСЯ ВНЕСЕНА ІНФОРМАЦІЯ ВИДАЛИТЬСЯ!";
 export const TODAY = "Сьогодні";
 export const YESTERDAY = "Вчора";
 export const TOMORROW = "Завтра";

@@ -71,15 +71,17 @@ export default function NavMenu() {
                   </Menu.Item>
                 </Link>
               ) : (
-                <Menu.Item>
-                  <a
-                    href="https://portfolio-next13-nnoz.vercel.app/"
-                    className="bg-white text-gray-900 hover:bg-violet-700 hover:text-white transition-colors menuItem group"
-                  >
-                    <span className="flex items-center">{ABOUT}</span>
-                    <UserCircleIcon className="h-6 w-6 ml-5" />
-                  </a>
-                </Menu.Item>
+                <>
+                  <Menu.Item>
+                    <a
+                      href="https://portfolio-next13-nnoz.vercel.app/"
+                      className="bg-white text-gray-900 hover:bg-violet-700 hover:text-white transition-colors menuItem group"
+                    >
+                      <span className="flex items-center">{ABOUT}</span>
+                      <UserCircleIcon className="h-6 w-6 ml-5" />
+                    </a>
+                  </Menu.Item>
+                </>
               )}
               <div className=""></div>
               {!recipes && (

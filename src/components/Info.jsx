@@ -14,6 +14,7 @@ import {
   CAL,
   CALORIES,
   CARBOHIDR,
+  CLEAN,
   FATS,
   INFO,
   PROTEINS,
@@ -54,6 +55,12 @@ export default function Info() {
       normOfCarbohydrates,
       dailyСonsumedCarbohydrates
     );
+
+  const clean = () => {
+    window.location.reload();
+    localStorage.clear();
+  };
+
   return (
     <div className="fixed top-3 left-2 right-2 w-fit z-40">
       <Popover className="relative">
@@ -128,6 +135,9 @@ export default function Info() {
                       </span>
                     </span>
                     <span className="block text-sm text-gray-500">{INFO}</span>
+                    <p onClick={clean} className="mt-2 text-sm text-red-400">
+                      {CLEAN}
+                    </p>
                     {/* </a> */}
                   </div>
                 </div>
