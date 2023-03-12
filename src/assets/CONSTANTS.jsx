@@ -22,6 +22,7 @@ export const ADD_AGAIN = "Додати ще";
 export const ADD_TO_FAVORITES = "Додати в улюблені?";
 export const DELETE_FROM_FAVORITES = "Видалити з улюблених";
 export const FAVORITES = "Улюблені продукти";
+export const ALL = "Всі продукти";
 export const CARBOHIDR_PLACEHOLDER = "Вуглев.";
 export const CALORIES = "Калорії";
 export const NUTRIENTS = "Нутрієнти в 100гр";

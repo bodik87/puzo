@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { CAL, CARB, FAT, NAME, PROT, SEARCH } from "../assets/CONSTANTS";
+import {
+  ALL,
+  CAL,
+  CARB,
+  FAT,
+  FAVORITES,
+  NAME,
+  PROT,
+  SEARCH,
+} from "../assets/CONSTANTS";
 import EditProduct from "../components/Modals/EditProduct";
 import {
   BackspaceIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function CatalogPage() {
   const products = useSelector((state) => state.products);
@@ -13,6 +23,9 @@ export default function CatalogPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [editableProduct, seteEditableProduct] = useState(null);
   const [openedEditProduct, setOpenedEditProduct] = useState(false);
+  const [showedFilteredProduct, setShowedFilteredProduct] = useState(false);
+
+  const favoriteProducts = products.filter((product) => product.isFavorite);
 
   const handleClick = (product) => {
     seteEditableProduct(product);
@@ -41,11 +54,11 @@ export default function CatalogPage() {
         setOpenedEditProduct={setOpenedEditProduct}
       />
       <div className="relative mx-2">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="absolute top-5 left-0 flex items-center pl-3 pointer-events-none">
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-500" />
         </div>
         {searchQuery && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer">
+          <div className="absolute top-5 right-0 flex items-center pr-4 cursor-pointer">
             <BackspaceIcon
               onClick={() => {
                 setFilteredProducts(products);
@@ -62,10 +75,26 @@ export default function CatalogPage() {
           placeholder={SEARCH}
           className="input border-2 rounded-xl p-4 pl-10 mb-2"
         />
+        <button
+          type="button"
+          className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-3 flex flex-nowrap items-center gap-2 mb-2"
+          onClick={() => {
+            if (!showedFilteredProduct) {
+              setFilteredProducts(favoriteProducts);
+              setShowedFilteredProduct(true);
+            } else {
+              setFilteredProducts(products);
+              setShowedFilteredProduct(false);
+            }
+          }}
+        >
+          <StarIcon style={{ fill: "#fcbe03" }} className="h-5 w-5" />
+          {showedFilteredProduct ? ALL : FAVORITES}
+        </button>
       </div>
       <div className="relative overflow-y-auto shadow-md rounded-lg mx-2">
         <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-slate-300">
+          <thead className="text-xs text-gray-100 uppercase bg-slate-400">
             <tr>
               <th scope="col" className="w-1/2 sm:w-2/3 px-3 py-3">
                 {NAME}
@@ -90,7 +119,7 @@ export default function CatalogPage() {
                 key={product.id}
                 onClick={() => handleClick(product)}
                 className={`bg-slate-50 border-b odd:bg-white ${
-                  product.isFavorite && "bg-red-200 odd:bg-red-200"
+                  product.isFavorite && "bg-yellow-100"
                 } cursor-pointer`}
               >
                 <th

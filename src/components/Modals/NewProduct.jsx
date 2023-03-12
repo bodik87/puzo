@@ -182,9 +182,9 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 items-center">
-                        <div className="mb-6">
-                          <label className="block ml-2 mb-1 font-medium text-gray-900">
+                      <div className="grid grid-cols-2 items-center mb-6">
+                        <div className="">
+                          <label className="block mb-1 font-medium text-gray-900">
                             {CALORIES}
                           </label>
                           <input
@@ -200,7 +200,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                         </div>
 
                         <div className="flex flex-col md:flex-row gap-2 justify-center items-center select-none">
-                          <div className="flex items-center h-5 cursor-pointer">
+                          <div className="flex items-center cursor-pointer">
                             <input
                               id="favorite"
                               type="checkbox"
@@ -212,7 +212,7 @@ export default function NewProduct({ openedNewProduct, setOpenedNewProduct }) {
                           </div>
                           <label
                             htmlFor="favorite"
-                            className="text-sm font-medium text-gray-900 cursor-pointer select-none"
+                            className="text-sm text-center font-medium text-gray-900 cursor-pointer select-none"
                           >
                             {checked ? DELETE_FROM_FAVORITES : ADD_TO_FAVORITES}
                           </label>
