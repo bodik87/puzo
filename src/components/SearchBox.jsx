@@ -70,7 +70,7 @@ export default function SearchBox({
               >
                 <MagnifyingGlassIcon
                   className={`${
-                    daylyMeals.length === 0 && "animate-pulse"
+                    daylyMeals.length === 0 && !activeInput && "animate-pulse"
                   } w-8 h-8 text-gray-500 cursor-pointer`}
                 />
               </Combobox.Button>

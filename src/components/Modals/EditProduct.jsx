@@ -136,7 +136,7 @@ export default function EditProduct({
                             step={0.1}
                             value={proteins}
                             onChange={(e) => setProteins(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 text-sm"
                             placeholder={PROTEINS}
                             required
                           />
@@ -151,7 +151,7 @@ export default function EditProduct({
                             step={0.1}
                             value={fats}
                             onChange={(e) => setFats(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 text-sm"
                             placeholder={FATS}
                             required
                           />
@@ -166,15 +166,15 @@ export default function EditProduct({
                             step={0.1}
                             value={carbohydrates}
                             onChange={(e) => setCarbohydrates(e.target.value)}
-                            className="input px-2 py-3 md:px-4 text-sm"
+                            className="input px-4 py-3 text-sm"
                             placeholder={CARBOHIDR_PLACEHOLDER}
                             required
                           />
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 items-center">
-                        <div className="mb-6">
+                      <div className="grid grid-cols-2 items-center mb-6">
+                        <div className="">
                           <label className="block mb-1 font-medium text-gray-900">
                             {CALORIES}
                           </label>
@@ -184,14 +184,14 @@ export default function EditProduct({
                             step={0.1}
                             value={calories}
                             onChange={(e) => setCalories(e.target.value)}
-                            className="input px-2 py-4 md:px-4"
+                            className="input px-4 py-4"
                             placeholder={CALORIES}
                             required
                           />
                         </div>
 
                         <div className="flex flex-col md:flex-row gap-2 justify-center items-center select-none">
-                          <div className="flex items-center h-5 cursor-pointer">
+                          <div className="flex items-center cursor-pointer">
                             <input
                               id="favorite"
                               type="checkbox"
@@ -203,7 +203,7 @@ export default function EditProduct({
                           </div>
                           <label
                             htmlFor="favorite"
-                            className="text-sm font-medium text-gray-900 cursor-pointer select-none"
+                            className="text-sm text-center font-medium text-gray-900 cursor-pointer select-none"
                           >
                             {checked ? DELETE_FROM_FAVORITES : ADD_TO_FAVORITES}
                           </label>
