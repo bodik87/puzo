@@ -88,7 +88,9 @@ export default function CatalogPage() {
             }
           }}
         >
-          <StarIcon style={{ fill: "#fcbe03" }} className="h-5 w-5" />
+          {!showedFilteredProduct && (
+            <StarIcon style={{ fill: "#fcbe03" }} className="h-5 w-5" />
+          )}
           {showedFilteredProduct ? ALL : FAVORITES}
         </button>
       </div>
@@ -118,7 +120,7 @@ export default function CatalogPage() {
               <tr
                 key={product.id}
                 onClick={() => handleClick(product)}
-                className={`bg-slate-50 border-b odd:bg-white ${
+                className={`bg-slate-50 border-b border-slate-200 ${
                   product.isFavorite && "bg-yellow-100"
                 } cursor-pointer`}
               >

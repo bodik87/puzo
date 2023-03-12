@@ -3,9 +3,8 @@ import { Combobox, Transition } from "@headlessui/react";
 import { useSelector } from "react-redux";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import AddMeal from "./Popups/AddMeal";
-import { NO_DATA } from "../assets/CONSTANTS";
+import { FAV, NO_DATA } from "../assets/CONSTANTS";
 import LastProducts from "./LastProducts";
-import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function SearchBox({
   favoriteProducts,
@@ -42,7 +41,7 @@ export default function SearchBox({
         setOpenedAddMeal={setOpenedAddMeal}
         productToMeal={productToMeal}
       />
-      <div className="relative h-[70px] w-full mt-3">
+      <div className="relative h-[70px] w-full mt-6">
         <LastProducts lastProducts={lastProducts} />
         <Favorites array={favoriteProducts} func={handleAdd} />
         <Transition appear show={activeInput} as={Fragment}>
@@ -146,16 +145,15 @@ export default function SearchBox({
 function Favorites({ array, func }) {
   return (
     <div className="absolute w-full top-1">
+      <div className="absolute -top-3 left-[75px] whitespace-nowrap text-xs  bg-[#ffc928] px-3 py-1 rounded-full shadow-md z-10">
+        {FAV}
+      </div>
       <div className="flex items-center flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-20 sm:mb-0 relative">
-        <StarIcon
-          style={{ fill: "#fcbe03" }}
-          className="absolute top-0 left-[74px] h-6 w-6 animate-scale"
-        />
         {array.map((product) => (
           <div
             key={product.id}
             onClick={() => func(product)}
-            className="whitespace-nowrap text-gray-900 bg-white border border-gray-300 font-medium rounded-full px-4 py-4 mr-1 mb-2 cursor-pointer select-none"
+            className="whitespace-nowrap text-gray-900 bg-yellow-50 border border-gray-300 font-medium rounded-full px-4 py-4 mr-1 mb-2 cursor-pointer select-none "
           >
             {product.title}
           </div>
