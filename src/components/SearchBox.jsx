@@ -145,7 +145,7 @@ export default function SearchBox({
 function Favorites({ array, func }) {
   return (
     <div className="absolute w-full top-1">
-      <div className="absolute -top-3 left-[75px] whitespace-nowrap text-xs  bg-[#ffc928] px-3 py-1 rounded-full shadow-md z-10">
+      <div className="absolute -top-3 left-24 whitespace-nowrap text-xs  bg-[#ffc928]/80 px-3 py-1 rounded-full shadow-md z-10">
         {FAV}
       </div>
       <div className="flex items-center flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-20 sm:mb-0 relative">
@@ -153,7 +153,7 @@ function Favorites({ array, func }) {
           <div
             key={product.id}
             onClick={() => func(product)}
-            className="whitespace-nowrap text-gray-900 bg-yellow-50 border border-gray-300 font-medium rounded-full px-4 py-4 mr-1 mb-2 cursor-pointer select-none "
+            className="whitespace-nowrap text-gray-900 bg-white border border-gray-300 font-medium rounded-full px-4 py-4 mr-1 mb-2 cursor-pointer select-none "
           >
             {product.title}
           </div>

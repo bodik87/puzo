@@ -121,7 +121,7 @@ export default function CatalogPage() {
                 key={product.id}
                 onClick={() => handleClick(product)}
                 className={`bg-slate-50 border-b border-slate-200 ${
-                  product.isFavorite && "bg-yellow-100"
+                  product.isFavorite && "bg-yellow-50"
                 } cursor-pointer`}
               >
                 <th
