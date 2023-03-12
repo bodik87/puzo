@@ -85,7 +85,6 @@ export default function EditMealWeight({
                       className="input p-4 text-2xl"
                       required
                     />
-
                     <div className="mt-6 flex justify-center">
                       <button
                         type="button"

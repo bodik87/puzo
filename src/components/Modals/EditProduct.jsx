@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as Heart } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/24/outline";
+import { StarIcon as Star } from "@heroicons/react/24/solid";
 import { Fragment, useEffect, useState } from "react";
 import {
   ADD_TO_FAVORITES,
@@ -208,14 +208,14 @@ export default function EditProduct({
                             {checked ? DELETE_FROM_FAVORITES : ADD_TO_FAVORITES}
                           </label>
                           {checked ? (
-                            <Heart
-                              style={{ fill: "#EF4444" }}
+                            <Star
+                              style={{ fill: "#fcbe03" }}
                               onClick={() => setChecked(!checked)}
                               className="h-8 w-8 animate-scale"
                             />
                           ) : (
-                            <HeartIcon
-                              style={{ stroke: "#EF4444" }}
+                            <StarIcon
+                              style={{ stroke: "#fcbe03" }}
                               onClick={() => setChecked(!checked)}
                               className="h-8 w-8"
                             />

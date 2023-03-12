@@ -40,7 +40,7 @@ export default function LastProducts({ lastProducts }) {
           >
             <Popover.Panel className="mt-3 max-w-xs">
               <div className="overflow-hidden rounded-2xl shadow-lg">
-                <div className="flex flex-col gap-1 bg-white py-2 px-2">
+                <div className="flex flex-col gap-1 bg-white py-2 px-2 max-h-60 overflow-y-auto">
                   {lastProducts.length > 0 ? (
                     lastProducts.map((product) => (
                       <>
@@ -49,10 +49,10 @@ export default function LastProducts({ lastProducts }) {
                           onClick={() => handleAdd(product)}
                           className="flex justify-between rounded-2xl text-gray-900 hover:bg-blue-600 hover:text-white transition-all cursor-pointer"
                         >
-                          <span className="py-4 text-lg px-4 mx-2 rounded-2xl">
+                          <span className="py-4 text-sm px-4 mx-2 rounded-2xl">
                             {product.title}
                           </span>
-                          <span className="py-4 text-lg px-4 mx-2 rounded-2xl">
+                          <span className="py-4 text-sm px-4 mx-2 rounded-2xl">
                             {product.calories}
                           </span>
                         </div>

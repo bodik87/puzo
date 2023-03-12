@@ -5,9 +5,13 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import AddMeal from "./Popups/AddMeal";
 import { NO_DATA } from "../assets/CONSTANTS";
 import LastProducts from "./LastProducts";
-import { HeartIcon } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/24/solid";
 
-export default function SearchBox({ favoriteProducts, lastProducts }) {
+export default function SearchBox({
+  favoriteProducts,
+  lastProducts,
+  daylyMeals,
+}) {
   const products = useSelector((state) => state.products);
   const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
@@ -64,7 +68,11 @@ export default function SearchBox({ favoriteProducts, lastProducts }) {
                 onClick={() => setActiveInput(!activeInput)}
                 className="absolute z-30 inset-y-0 left-0 flex items-center px-4"
               >
-                <MagnifyingGlassIcon className="w-8 h-8 text-gray-500 cursor-pointer" />
+                <MagnifyingGlassIcon
+                  className={`${
+                    daylyMeals.length === 0 && "animate-pulse"
+                  } w-8 h-8 text-gray-500 cursor-pointer`}
+                />
               </Combobox.Button>
 
               <div
@@ -87,7 +95,7 @@ export default function SearchBox({ favoriteProducts, lastProducts }) {
                 leaveTo="opacity-0"
                 afterLeave={() => setQuery("")}
               >
-                <Combobox.Options className="absolute z-50 mt-1 max-h-60 w-full overflow-y-auto rounded-3xl bg-white py-2 text-base shadow-lg focus:outline-none sm:text-sm">
+                <Combobox.Options className="absolute z-50 mt-1 w-full max-h-60 overflow-y-auto rounded-3xl bg-white py-2 text-base shadow-lg focus:outline-none sm:text-sm">
                   {filteredProducts.length === 0 && query !== "" ? (
                     <div className="relative cursor-default select-none py-4 px-4 text-gray-700">
                       {NO_DATA}
@@ -137,11 +145,11 @@ export default function SearchBox({ favoriteProducts, lastProducts }) {
 
 function Favorites({ array, func }) {
   return (
-    <div className="absolute w-full top-1 overflow-hidden">
-      <div className="flex items-center flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-[120px] sm:mb-0 relative">
-        <HeartIcon
-          style={{ fill: "#EF4444" }}
-          className="absolute top-3 left-20 h-8 w-8 animate-scale"
+    <div className="absolute w-full top-1">
+      <div className="flex items-center flex-nowrap pb-6 md:pb-0 overflow-x-auto pl-20 sm:mb-0 relative">
+        <StarIcon
+          style={{ fill: "#fcbe03" }}
+          className="absolute top-0 left-[74px] h-6 w-6 animate-scale"
         />
         {array.map((product) => (
           <div

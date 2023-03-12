@@ -55,6 +55,7 @@ export default function Meal({ daylyMeals, lastProducts }) {
         <SearchBox
           favoriteProducts={favoriteProducts}
           lastProducts={lastProducts}
+          daylyMeals={daylyMeals}
         />
       )}
 
